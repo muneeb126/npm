@@ -1,8 +1,5 @@
 //Jenkins file only to tutorial example
-options {    // This is used for log rotation
-        buildDiscarder(logRotator(numToKeepStr: '5'))
-        disableConcurrentBuilds()
-    }
+
 pipeline {
   agent any
     
