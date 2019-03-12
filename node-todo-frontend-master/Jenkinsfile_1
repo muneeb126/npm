@@ -9,7 +9,7 @@ pipeline {
         
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/muneeb126/npm/tree/master/node-todo-frontend-master'
+        git 'https://github.com/muneeb126/npm.git'
       }
     }
         
