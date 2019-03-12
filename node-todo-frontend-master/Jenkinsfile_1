@@ -18,7 +18,7 @@ pipeline {
         
     stage('Install dependencies') {
       steps {
-        sh 'npm clean-install-test'
+        sh 'npm clean-install'
       }
     }
      
