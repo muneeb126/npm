@@ -1,25 +1,32 @@
-//Jenkins file only to tutorial example
-
 pipeline {
-  agent any
-  stages {
-        
-    stage('Cloning Git') {
-      steps {
-        git 'https://github.com/muneeb126/npm.git'
-      }
+    agent any
+        options {    // This is used for log rotation, please try to keep is as minimum as you can
+        buildDiscarder(logRotator(numToKeepStr: '3'))
+        disableConcurrentBuilds()
     }
-        
-    stage('Install dependencies') {
-      steps {
-        sh 'npm clean-install'
-      }
+    environment {
+        PATH = "$NODE9/bin:$PATH"
     }
-     
-    stage('Test') {
-      steps {
-         sh 'npm test'
-      }
-    } 
+    stages {
+       stage('Cleaning') {
+            steps {
+                cleanWs()
+            }
+        } 
+        stage('Cloning Git') {
+            steps {
+            	cleanWs()
+                git 'https://globalrepository.mclocal.int/stash/scm/~e088732/test_repo.git'
+            }
+        }
+        stage('Install dependencies') {
+            steps {
+                sh 'npm version'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'npm install-test'
+            }
+        }
     }
-}
