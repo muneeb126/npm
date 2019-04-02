@@ -10,7 +10,6 @@ pipeline {
     stages {
         stage('Cloning Git') {
             steps {
-            	cleanWs()
                 git 'https://globalrepository.mclocal.int/stash/scm/~e088732/test_repo.git'
             }
         }
