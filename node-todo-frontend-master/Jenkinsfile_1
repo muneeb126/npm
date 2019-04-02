@@ -8,11 +8,6 @@ pipeline {
         PATH = "$NODE9/bin:$PATH"
     }
     stages {
-       stage('Cleaning') {
-            steps {
-                cleanWs()
-            }
-        } 
         stage('Cloning Git') {
             steps {
             	cleanWs()
