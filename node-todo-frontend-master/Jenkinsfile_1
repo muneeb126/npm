@@ -5,7 +5,7 @@ pipeline {
         disableConcurrentBuilds()
     }
     environment {
-        PATH = "$NODE9/bin:$PATH"
+        PATH = "$NODE11/bin:$PATH"
     }
     stages {
         stage('Cloning Git') {
