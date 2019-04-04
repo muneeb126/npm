@@ -15,12 +15,12 @@ pipeline {
         }
         stage('Install dependencies') {
             steps {
-                sh 'npm version'
+                sh 'npm clean-install'
             }
         }
         stage('Test') {
             steps {
-                sh 'npm install-test'
+                sh 'npm test'
             }
         }
     }
